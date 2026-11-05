@@ -1,0 +1,896 @@
+
+:root {
+  --dark: #173851;
+  --gold: #b78635;
+  --blue: #3c82ba;
+  --white: #ffffff;
+  --muted: #60778b;
+  --line: rgba(30,72,105,.16);
+  --shadow: 0 22px 60px rgba(15,51,82,.16);
+  --accent: #d6ab62;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Manrope, Arial, sans-serif;
+  font-weight: 700;
+  color: var(--dark);
+  background: #e7f1fc;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ФОН */
+
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #dfedfb;
+}
+
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: -4%;
+
+  background-image:
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Night_at_Esil_District%2C_Astana_%28P1190721%29.jpg?width=1920");
+
+  background-size: cover;
+  background-position: center;
+
+  opacity: .34;
+
+  animation: cityMove 35s ease-in-out
+             infinite alternate;
+}
+
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(245,250,255,.77),
+    rgba(221,237,255,.49)
+  );
+}
+
+.theme-gold::after {
+  background: linear-gradient(
+    115deg,#fff8e8de,#d9e8f5b8
+  );
+}
+
+.theme-blue::after {
+  background: linear-gradient(
+    115deg,#e9f7ffdf,#cbdffac4
+  );
+}
+
+.theme-green::after {
+  background: linear-gradient(
+    115deg,#ecfff0df,#d3f3dec5
+  );
+}
+
+.theme-purple::after {
+  background: linear-gradient(
+    115deg,#f6efffdf,#dfe6f9c5
+  );
+}
+
+.theme-peach::after {
+  background: linear-gradient(
+    115deg,#fff2e7df,#f6e3d5c5
+  );
+}
+
+.theme-sky::after {
+  background: linear-gradient(
+    115deg,#e9fbffdf,#d5eafcc5
+  );
+}
+
+@keyframes cityMove {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08) translateY(-14px);
+  }
+}
+
+/* ЖОҒАРҒЫ МӘЗІР */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 5px 22px #173d5912;
+}
+
+.header-inner {
+  max-width: 1500px;
+  min-height: 82px;
+  padding: 12px 25px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: auto;
+
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--dark);
+  text-align: left;
+}
+
+.brand-icon {
+  width: 49px;
+  height: 49px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  background: #183e61;
+  border-radius: 15px;
+  color: #ffe0a4;
+  font-size: 29px;
+}
+
+.brand strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.brand small {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  color: #617b93;
+  font-weight: 800;
+}
+
+.navigation,
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navigation button,
+.square-btn {
+  padding: 11px 14px;
+  border: 1px solid #d7e3ed;
+  border-radius: 12px;
+
+  background: #f1f7ff;
+  color: #234765;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.navigation button:hover,
+.square-btn:hover {
+  background: #dfedff;
+}
+
+.square-btn {
+  min-width: 43px;
+  font-size: 18px;
+}
+
+.timer {
+  color: #b27e2d;
+  font-size: 25px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* НЕГІЗГІ БӨЛІМ */
+
+.app,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.app {
+  max-width: 1500px;
+  min-height: calc(100vh - 150px);
+  margin: auto;
+  padding: 30px 25px 45px;
+}
+
+.eyebrow {
+  color: #a4772e;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.page-title {
+  margin: 14px 0 24px;
+  font-size: clamp(35px,4vw,61px);
+  line-height: 1.18;
+  font-weight: 800;
+  color: #173a58;
+}
+
+.card {
+  background: rgba(255,255,255,.96);
+  border: 1px solid white;
+  border-radius: 27px;
+  padding: clamp(23px,3.4vw,50px);
+  box-shadow: var(--shadow);
+}
+
+.chip {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 100px;
+  background: #fff3df;
+  border: 1px solid #e7cd9f;
+  color: #956823;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.heading-row,
+.controls,
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.heading-row,
+.controls {
+  justify-content: space-between;
+}
+
+.controls,
+.actions {
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 52px;
+  padding: 13px 24px;
+
+  background: white;
+  border: 1px solid #cbdceb;
+  border-radius: 14px;
+
+  color: #234965;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  transition: .2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: #eaf4ff;
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: linear-gradient(
+    120deg,#ffe4a6,#e6b45d
+  );
+  border-color: #d9a853;
+  color: #392c19;
+}
+
+.btn:disabled {
+  opacity: .55;
+  cursor: default;
+  transform: none;
+}
+
+.progress {
+  height: 8px;
+  border-radius: 100px;
+  background: #ffffffb8;
+  overflow: hidden;
+  margin: 17px 0 24px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,#6fb4eb,#d8a455
+  );
+  transition: width .35s ease;
+}
+
+/* БАСТЫ БЕТ */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 40px;
+  align-items: center;
+  min-height: 72vh;
+}
+
+.hero h1 {
+  font-size: clamp(65px,8vw,125px);
+  line-height: 1.05;
+  letter-spacing: -4px;
+  font-weight: 800;
+  margin: 16px 0;
+}
+
+.hero h1 span {
+  color: #ae7a2b;
+}
+
+.hero p {
+  font-size: clamp(19px,1.75vw,25px);
+  font-weight: 800;
+  line-height: 1.8;
+}
+
+.hero-image {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  border-radius: 29px;
+  border: 5px solid white;
+  box-shadow: var(--shadow);
+  background: #c6d9eb;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoomPhoto 22s ease-in-out
+             infinite alternate;
+}
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,#112b43d9,transparent 72%
+  );
+}
+
+.hero-quote {
+  position: absolute;
+  z-index: 1;
+  left: 28px;
+  right: 23px;
+  bottom: 28px;
+  color: white;
+  font-size: clamp(28px,2.7vw,42px);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.stats b {
+  display: block;
+  color: #ad772a;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.stats small {
+  color: #54718a;
+  font-size: 13px;
+}
+
+/* ТҮСІНДІРМЕ */
+
+.speech-card {
+  border-top: 7px solid var(--accent);
+}
+
+.speech-card h2 {
+  font-size: clamp(31px,3.4vw,51px);
+  color: #a97527;
+  margin: 15px 0 20px;
+}
+
+.presenter-label {
+  color: #3983b5;
+  font-weight: 800;
+  letter-spacing: .8px;
+  font-size: 14px;
+}
+
+.presenter-text {
+  font-size: clamp(21px,1.9vw,29px);
+  font-weight: 800;
+  line-height: 1.8;
+  color: #173a56;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  min-height: 110px;
+}
+
+.typing::after {
+  content: "▌";
+  color: #c4933c;
+  animation: blink .8s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ФОТОЛАР */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+.photo-box {
+  height: min(68vh,650px);
+  min-width: 0;
+  min-height: 350px;
+  overflow: hidden;
+  border: 5px solid white;
+  border-radius: 26px;
+  background: #d5e7f3;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  animation: photoAppear .8s ease forwards;
+  animation-delay: calc(var(--i) * .28s);
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  animation: zoomPhoto 19s ease-in-out
+             infinite alternate;
+}
+
+@keyframes photoAppear {
+  from {
+    opacity: 0;
+    transform: translateY(45px) scale(.92);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes zoomPhoto {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+/* ВИДЕО */
+
+.video-card {
+  max-width: 1050px;
+  margin: auto;
+  padding: 25px;
+}
+
+.video-screen {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border: 4px solid #e3bd76;
+  border-radius: 20px;
+  background: #173b62;
+  display: grid;
+  place-items: center;
+}
+
+.video-screen iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-poster {
+  padding: 25px;
+  text-align: center;
+  color: white;
+}
+
+.video-poster span {
+  display: block;
+  font-size: 78px;
+  color: #ffde9a;
+}
+
+.video-poster h2 {
+  color: white;
+  font-size: clamp(24px,2.8vw,40px);
+}
+
+.video-note {
+  margin: 20px 0;
+  padding: 20px 24px;
+  background: #fff5e4;
+  border-left: 5px solid #d8a75a;
+  border-radius: 13px;
+  font-size: clamp(18px,1.4vw,22px);
+  line-height: 1.7;
+  font-weight: 800;
+}
+
+/* КОМАНДАЛАР */
+
+.team-board {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 15px;
+  margin-bottom: 23px;
+}
+
+.team {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+}
+
+.team.active {
+  outline: 3px solid #d6a44d;
+  background: #fff7e7;
+}
+
+.team small {
+  display: block;
+  color: #627a90;
+  font-size: 12px;
+}
+
+.team strong {
+  font-size: 19px;
+  color: #173d5b;
+}
+
+.team-score {
+  color: #aa792d;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+/* ОЙЫН */
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 22px;
+}
+
+.question-card h2 {
+  color: #a7772b;
+  font-size: clamp(28px,2.8vw,43px);
+}
+
+.question {
+  font-size: clamp(22px,1.85vw,30px);
+  line-height: 1.7;
+  font-weight: 800;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.option {
+  min-height: 82px;
+  padding: 18px;
+  border: 2px solid #d7e4ef;
+  border-radius: 15px;
+  background: #f2f8ff;
+  text-align: left;
+  color: #193e5c;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.option:hover:not(:disabled) {
+  background: #deedff;
+}
+
+.option.correct {
+  background: #d9f8e5;
+  border-color: #46bc7d;
+}
+
+.option.wrong {
+  background: #ffe4e4;
+  border-color: #e58484;
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.criteria {
+  padding-left: 27px;
+  font-size: 19px;
+  line-height: 1.9;
+  font-weight: 800;
+}
+
+.feedback {
+  background: #fff5e2;
+  border: 1px solid #e6c78b;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 22px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.feedback strong {
+  color: #a57425;
+  font-size: 20px;
+}
+
+.game-side h2 {
+  color: #aa792c;
+  font-size: 34px;
+}
+
+.game-side p {
+  color: #59738a;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.awards {
+  display: flex;
+  gap: 11px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* ҚОРЫТЫНДЫ */
+
+.final {
+  text-align: center;
+  padding: 45px 0;
+}
+
+.final h1 {
+  font-size: clamp(42px,5.4vw,77px);
+  line-height: 1.2;
+}
+
+.final h1 span {
+  color: #b37d27;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+  margin: 32px 0;
+}
+
+.results h3 {
+  font-size: 24px;
+}
+
+.results b {
+  display: block;
+  font-size: 53px;
+  color: #af7d2c;
+}
+
+/* FOOTER */
+
+.footer {
+  max-width: 1500px;
+  margin: auto;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  border-top: 1px solid var(--line);
+  color: #59758d;
+  font-size: 12px;
+}
+
+.footer strong {
+  color: #a97728;
+}
+
+/* БЕТ АУЫСУ */
+
+.page-enter {
+  animation: pageEnter .45s ease both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(17px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* МОБИЛЬДІ НҰСҚА */
+
+@media(max-width:1000px) {
+  .hero,
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image {
+    height: 370px;
+  }
+}
+
+@media(max-width:720px) {
+  .header-inner {
+    gap: 7px;
+    padding: 9px;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .brand strong {
+    font-size: 12px;
+  }
+
+  .brand small {
+    font-size: 9px;
+  }
+
+  .brand-icon {
+    width: 37px;
+    height: 37px;
+    font-size: 23px;
+  }
+
+  .timer {
+    font-size: 17px;
+  }
+
+  .square-btn {
+    min-width: 35px;
+    padding: 8px;
+  }
+
+  .app {
+    padding: 20px 12px 35px;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+    letter-spacing: -3px;
+  }
+
+  .presenter-text {
+    font-size: 19px;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-box {
+    height: 275px;
+    min-height: 0;
+  }
+
+  .team-board {
+    gap: 7px;
+  }
+
+  .team {
+    display: block;
+    padding: 12px 8px;
+  }
+
+  .team strong {
+    font-size: 12px;
+  }
+
+  .team-score {
+    font-size: 26px;
+  }
+
+  .options,
+  .results {
+    grid-template-columns: 1fr;
+  }
+
+  .video-card {
+    padding: 14px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .photo-box {
+    opacity: 1;
+  }
+}

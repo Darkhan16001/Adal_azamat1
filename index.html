@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#eaf3ff">
+
+  <title>Адал азамат — Ашық тәрбие сағаты</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <div id="scene"
+       class="scene theme-gold"
+       aria-hidden="true"></div>
+
+  <header class="header">
+
+    <div class="header-inner">
+
+      <button class="brand" onclick="showHome()">
+        <span class="brand-icon">✦</span>
+
+        <span>
+          <strong>АДАЛ АЗАМАТ</strong>
+          <small>АШЫҚ ТӘРБИЕ САҒАТЫ · 1-КУРС</small>
+        </span>
+      </button>
+
+      <nav class="navigation">
+        <button onclick="showHome()">
+          Басты бет
+        </button>
+
+        <button onclick="showSlide(0)">
+          Түсіндірме
+        </button>
+
+        <button onclick="showGame(0)">
+          Ойын
+        </button>
+      </nav>
+
+      <div class="header-tools">
+
+        <span id="timer" class="timer">
+          25:00
+        </span>
+
+        <button id="timerBtn"
+                class="square-btn"
+                onclick="toggleTimer()"
+                title="Таймер">
+          ▶
+        </button>
+
+        <button class="square-btn"
+                onclick="fullScreen()"
+                title="Толық экран">
+          ⛶
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main id="app" class="app"></main>
+
+  <footer class="footer">
+    <span>
+      АДАЛДЫҚ · ӘДІЛДІК · ЖАУАПКЕРШІЛІК
+    </span>
+
+    <span>
+      CREATED BY <strong>DARKHAN</strong>
+    </span>
+  </footer>
+
+</body>
+</html>
