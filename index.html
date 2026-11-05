@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eaf5ff">
+  <title>Адал азамат — Ашық тәрбие сағаты</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div id="scene" class="scene theme-gold"></div>
+
+  <header class="header">
+    <div class="header-inner">
+
+      <button class="brand" onclick="showHome()">
+        <span class="brand-symbol">✦</span>
+        <span>
+          <strong>АДАЛ АЗАМАТ</strong>
+          <small>АШЫҚ ТӘРБИЕ САҒАТЫ · 1-КУРС</small>
+        </span>
+      </button>
+
+      <div class="header-nav">
+        <button onclick="showHome()">Басты бет</button>
+        <button onclick="showSlide(0)">Сабақ</button>
+        <button onclick="showGame(0)">Ойын</button>
+      </div>
+
+      <div class="header-tools">
+        <div class="timer" id="timer">25:00</div>
+
+        <button class="icon-btn"
+                id="timerBtn"
+                onclick="toggleTimer()"
+                title="Таймер">▶</button>
+
+        <button class="icon-btn"
+                onclick="toggleFullscreen()"
+                title="Толық экран">⛶</button>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="app" class="app"></main>
+
+  <footer class="footer">
+    <span>АДАЛ АЗАМАТ · 15 СЛАЙД · 15 ОЙЫН</span>
+    <span>DESIGNED BY <strong>DARKHAN</strong></span>
+  </footer>
+</body>
+</html>
